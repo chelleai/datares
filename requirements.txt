@@ -1,1 +1,1 @@
-goose-py>=0.1.0
+goose-py
