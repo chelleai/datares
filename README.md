@@ -1,27 +1,20 @@
-# datares
+# Goose Evaluation by DataRes
 
-## Setup Instructions
+## Installation
 
-1. Install Miniconda
-   - Download and install Miniconda from: https://docs.conda.io/en/latest/miniconda.html
-   - Follow the installation instructions for your operating system
+1. Install `uv`
+    - For Linux: `curl -LsSf https://astral.sh/uv/install.sh | sh`
+    - For MacOS: `brew install uv`
+    - For Windows: `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"`
+2. Ensure you're using Python 3.12
+    - `uv python install 3.12`
+3. Install the dependencies, namely Goose
+    - `uv sync --all-extras`
 
-2. Create and activate virtual environment
-   ```bash
-   # Create new environment named 'goose'
-   conda create -n goose python=3.12
-   
-   # Activate the environment
-   conda activate goose
-   ```
+## Getting Started
 
-3. Install required packages
-   ```bash
-   # Install packages using conda
-   pip install -r requirements.txt
-   ```
+Check out the examples in the `examples` folder for some basic use-cases for Goose (and some more advanced ones!).
 
-Remember to always activate the 'goose' environment before working on the project:
-```bash
-conda activate goose
-```
+To run an example: `uv run python examples/<example>.py`.
+
+To start, try running the Meal Planner example: `uv run python examples/generate_meal_plan.py`
