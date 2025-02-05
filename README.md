@@ -10,6 +10,8 @@
     - `uv python install 3.12`
 3. Install the dependencies, namely Goose
     - `uv sync --all-extras`
+4. Populate your `.env` file
+    - The Gemini API key will be provided to you
 
 ## Getting Started
 
