@@ -18,7 +18,7 @@
 3. Install required packages
    ```bash
    # Install packages using conda
-   conda install -c conda-forge --file requirements.txt
+   pip install -r requirements.txt
    ```
 
 Remember to always activate the 'goose' environment before working on the project:
