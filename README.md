@@ -9,7 +9,7 @@
 2. Create and activate virtual environment
    ```bash
    # Create new environment named 'goose'
-   conda create -n goose python=3.9
+   conda create -n goose python=3.12
    
    # Activate the environment
    conda activate goose
