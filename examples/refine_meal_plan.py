@@ -126,7 +126,26 @@ async def meal_plan(*, flow_arguments: HealthGoals, agent: Agent) -> None:
 
 
 async def main() -> None:
-    health_goals = HealthGoals(goals=["lose weight", "have more energy"])
+    print("\nExample health goals:")
+    print("- lose weight")
+    print("- have more energy") 
+    print("- build muscle")
+    print("- improve digestion")
+    print("\nEnter your health goals one at a time.")
+    print("Press Enter without typing anything when you're done.\n")
+    
+    goals = []
+    while True:
+        goal = input("Enter a health goal: ").strip()
+        if not goal:
+            break
+        goals.append(goal)
+    
+    if not goals:
+        print("No goals entered, using default goals...")
+        goals = ["lose weight", "have more energy"]
+    
+    health_goals = HealthGoals(goals=goals)
     run_id = "my-meal-plan"
 
     # Step 1: generate the initial result
@@ -153,9 +172,21 @@ async def main() -> None:
     print(f"Dinner reasoning: {dinner.reason}")
 
     # Step 2: refine specific task results
+    print("\nNow you can refine your breakfast with a custom message.")
+    print("Example messages:")
+    print("- It's a cheat day, spice it up")
+    print("- Make it more protein-heavy")
+    print("- I want something sweeter")
+    print("- Make it vegetarian\n")
+
+    refine_message = input("Enter your refinement message (or press Enter for default cheat day message): ").strip()
+    if not refine_message:
+        refine_message = "It's a cheat day, spice it up"
+        print("Using default message...")
+
     async with meal_plan.start_run(run_id=run_id) as run:
         new_breakfast = await plan_breakfast.refine(
-            user_message=UserMessage(parts=[TextMessagePart(text="It's a cheat day, spice it up")])
+            user_message=UserMessage(parts=[TextMessagePart(text=refine_message)])
         )
 
     print("---")
