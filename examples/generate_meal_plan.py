@@ -126,7 +126,26 @@ async def meal_plan(*, flow_arguments: HealthGoals, agent: Agent) -> None:
 
 
 async def main() -> None:
-    health_goals = HealthGoals(goals=["lose weight", "have more energy"])
+    print("\nExample health goals:")
+    print("- lose weight")
+    print("- have more energy") 
+    print("- build muscle")
+    print("- improve digestion")
+    print("\nEnter your health goals one at a time.")
+    print("Press Enter without typing anything when you're done.\n")
+    
+    goals = []
+    while True:
+        goal = input("Enter a health goal: ").strip()
+        if not goal:
+            break
+        goals.append(goal)
+    
+    if not goals:
+        print("No goals entered, using default goals...")
+        goals = ["lose weight", "have more energy"]
+    
+    health_goals = HealthGoals(goals=goals)
     async with meal_plan.start_run(run_id="my-meal-plan") as run:
         await meal_plan.generate(health_goals)
 
