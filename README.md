@@ -20,3 +20,16 @@ Check out the examples in the `examples` folder for some basic use-cases for Goo
 To run an example: `uv run python examples/<example>.py`.
 
 To start, try running the Meal Planner example: `uv run python examples/generate_meal_plan.py`
+
+## A Good Starting Point
+
+- [ ] `examples/generate_meal_plan.py`
+- [ ] `examples/refine_meal_plan.py`
+
+Create you own refine_meal_plan.py file that updates lunch and dinner after creating the new breakfast.
+
+## Next Steps
+
+Identify a domain that is of interest to you and create a new example file that demonstrates how to use Goose to solve a problem in that domain.
+
+Goose can support document upload.
